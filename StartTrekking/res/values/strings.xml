@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Start Trekking</string>
+    <string name="title_section0">Início</string>
+    <string name="title_section1">Encontre uma Trek</string>
+    <string name="title_section2">Minhas Treks</string>
+    <string name="title_section3">Treks ao redor</string>
+    <string name="title_section4">Encontre Trekkers</string>
+    <string name="title_section5">Estou com Sorte!</string>
+    <string name="title_section6">Lista de Trekkers</string>
+    <string name="title_section7">Configurações</string>
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="navigation_drawer_close">Fechar</string>
+    <string name="action_example">Ação</string>
+    <string name="action_settings">Configurações</string>
+
+</resources>
