@@ -84,33 +84,34 @@ public class NavigationDrawerFragment extends Fragment {
 		selectItem(mCurrentSelectedPosition);
 		
 	}
-	
+
 	public void selectFrag(View view, int position) {
-		 Fragment fr = null;
-		 if (position == 1)
-			 fr = new EncontreUmaTrekFragment();
-		 else if (position == 2)
-			 fr = new MinhasTreksFragment();
-		 else if (position == 3)
-			 fr = new TreksAoRedorFragment();
-		 else if (position == 4)
-			 fr = new EncontreTrekkersFragment();
-		 else if (position == 5)
-			 fr = new EstouComSorteFragment();
-		 else if (position == 6)
-			 fr = new ListaDeTrekkersFragment();
-		 else if (position == 7)
-			 fr = new ConfigFragment();
-		 
-		 if (fr != null)
-		 {
-			 FragmentManager fm = getFragmentManager();
-		     FragmentTransaction fragmentTransaction = fm.beginTransaction();
-		     fragmentTransaction.replace(R.id.container, fr);
-		     fragmentTransaction.commit();
-		 }
-		 
-		 
+		
+		Fragment fr = null;
+		if (position == 1)
+			fr = new EncontreUmaTrekFragment();
+		else if (position == 2)
+			fr = new MinhasTreksFragment();
+		else if (position == 3)
+			fr = new TreksAoRedorFragment();
+		else if (position == 4)
+			fr = new EncontreTrekkersFragment();
+		else if (position == 5)
+			fr = new EstouComSorteFragment();
+		else if (position == 6)
+			fr = new ListaDeTrekkersFragment();
+		else if (position == 7)
+			fr = new ConfigFragment();
+
+		if (fr != null)
+		{
+			FragmentManager fm = getFragmentManager();
+			FragmentTransaction fragmentTransaction = fm.beginTransaction();
+			fragmentTransaction.replace(R.id.container, fr);
+			fragmentTransaction.commit();
+		}
+
+
 	}
 
 	@Override

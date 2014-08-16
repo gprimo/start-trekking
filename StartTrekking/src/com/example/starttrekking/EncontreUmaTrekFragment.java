@@ -7,6 +7,7 @@ import java.util.Map;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,10 +17,12 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class EncontreUmaTrekFragment extends Fragment {
+	public final static String TREK_NAME = "com.example.starttrekking.TREK_NAME";
 	private DatabaseHelper myDbHelper;
 	ArrayList<Trek> treks_array;
 	public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) 
@@ -49,10 +52,19 @@ public class EncontreUmaTrekFragment extends Fragment {
 			} while (cursor.moveToNext());
 		}
 
-		View view = inflater.inflate(
-				R.layout.encontre_uma_trek, container, false);
+		View view = inflater.inflate(R.layout.encontre_uma_trek, container, false);
 		
 		ListView treks_listview = (ListView)view.findViewById(R.id.treks_list);
+		treks_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() 
+		{
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+				Intent intent = new Intent(view.getContext(), DetalhesTrekActivity.class);
+				intent.putExtra(TREK_NAME, treks_array.get(position).getNome());
+				startActivity(intent);
+			}
+		});
+		
 		PopulateList(treks_listview, container.getContext());
 		
 		return view;
