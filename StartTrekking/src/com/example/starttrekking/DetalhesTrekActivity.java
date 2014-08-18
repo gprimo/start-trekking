@@ -18,6 +18,7 @@ public class DetalhesTrekActivity extends Activity {
 	    // Create the text view
 	    TextView textView = new TextView(this);
 	    textView.setTextSize(30);
+	    textView.setPadding(25, 25, 10, 0);
 	    textView.setText(message);
 
 	    // Set the text view as the activity layout

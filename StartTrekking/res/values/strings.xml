@@ -17,5 +17,6 @@
     <string name="title_activity_encontre_uma_trek">EncontreUmaTrekActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_detalhe_trek">DetalheTrekActivity</string>
+    <string name="Tempo">\@tempo</string>
 
 </resources>
