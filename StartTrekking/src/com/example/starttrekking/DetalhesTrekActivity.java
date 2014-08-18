@@ -14,15 +14,11 @@ public class DetalhesTrekActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		Intent intent = getIntent();
 	    String message = intent.getStringExtra(EncontreUmaTrekFragment.TREK_NAME);
-
-	    // Create the text view
-	    TextView textView = new TextView(this);
-	    textView.setTextSize(30);
-	    textView.setPadding(25, 25, 10, 0);
-	    textView.setText(message);
-
-	    // Set the text view as the activity layout
-	    setContentView(textView);
+	    setContentView(R.layout.activity_detalhe_trek);
+	    TextView titulo = (TextView) findViewById(R.id.titulo_trek);
+	    
+	    titulo.setText(message);
+	    
 	}
 
 	@Override

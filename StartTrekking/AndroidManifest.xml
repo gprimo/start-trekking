@@ -24,10 +24,6 @@
         </activity>
         <activity
             android:name=".DetalhesTrekActivity"
-            android:label="@string/title_activity_encontre_uma_trek" >
-        </activity>
-        <activity
-            android:name=".DetalhesTrekActivity"
             android:label="@string/title_activity_detalhe_trek" >
         </activity>
     </application>
