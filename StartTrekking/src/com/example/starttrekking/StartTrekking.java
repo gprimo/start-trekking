@@ -1,6 +1,8 @@
 package com.example.starttrekking;
 
 import android.app.Activity;
+import com.facebook.*;
+import com.facebook.model.*;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -9,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
  
 public class StartTrekking extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -36,6 +40,30 @@ public class StartTrekking extends Activity implements NavigationDrawerFragment.
 
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,(DrawerLayout) findViewById(R.id.drawer_layout));
+		
+		Session.openActiveSession(this, true, new Session.StatusCallback() {
+
+		    // callback when session changes state
+		    @Override
+		    public void call(Session session, SessionState state, Exception exception) {
+		    	if (session.isOpened()) {
+		    		  System.out.println("estou on!");
+		    		// make request to the /me API
+		    		  Request.newMeRequest(session, new Request.GraphUserCallback() {
+
+		    		    // callback after Graph API response with user object
+		    		    @Override
+		    		    public void onCompleted(GraphUser user, Response response) {
+		    		    	if (user != null) {
+		    		    		  TextView welcome = (TextView) findViewById(R.id.facebookLogin);
+		    		    		  welcome.setText("Hello " + user.getName() + "!");
+		    		    		}
+		    		    }
+		    		  }).executeAsync();
+		    		  
+		    		}
+		    }
+		  });
 	}
 
 	@Override
@@ -93,6 +121,14 @@ public class StartTrekking extends Activity implements NavigationDrawerFragment.
 		}
 		return super.onCreateOptionsMenu(menu);
 	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	  super.onActivityResult(requestCode, resultCode, data);
+	  Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+	}
+	
+	
 
 	
 

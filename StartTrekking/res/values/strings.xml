@@ -14,9 +14,9 @@
     <string name="navigation_drawer_close">Fechar</string>
     <string name="action_example">Ação</string>
     <string name="action_settings">Configurações</string>
-    <string name="title_activity_encontre_uma_trek">EncontreUmaTrekActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_detalhe_trek">DetalheTrekActivity</string>
-    <string name="Tempo">\@tempo</string>
+    <string name="title_activity_detalhe_trek">Detalhes da Trek</string>
+    <string name="app_id">275598455979325</string>
+    
 
 </resources>
