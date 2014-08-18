@@ -16,7 +16,11 @@
     <string name="action_settings">Configurações</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_detalhe_trek">Detalhes da Trek</string>
+<<<<<<< HEAD
     <string name="app_id">275598455979325</string>
     
+=======
+    <string name="Tempo">\@tempo</string>
+>>>>>>> branch 'master' of https://github.com:443/gprimo/start-trekking
 
 </resources>
