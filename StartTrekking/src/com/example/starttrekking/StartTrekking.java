@@ -1,9 +1,14 @@
 package com.example.starttrekking;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -93,7 +98,8 @@ public class StartTrekking extends Activity implements NavigationDrawerFragment.
 		}
 		return super.onCreateOptionsMenu(menu);
 	}
-
+	
+	
 	
 
 	/**

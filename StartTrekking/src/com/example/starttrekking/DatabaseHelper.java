@@ -48,7 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		boolean dbExist = checkDataBase();
 		if(dbExist)
 		{
-			Log.v("DB Exists", "db exists");
+			//Log.v("DB Exists", "db exists");
 			// By calling this method here onUpgrade will be called on a
 			// writeable database, but only if the version number has been
 			// bumped
@@ -111,7 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		if(file.exists())
 		{
 			file.delete();
-			System.out.println("delete database file.");
+			//System.out.println("delete database file.");
 		}
 	}
 
@@ -137,8 +137,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	{    
 		if (newVersion > oldVersion)
 		{
-			Log.v("Database Upgrade", "Database version higher than old.");
+			//Log.v("Database Upgrade", "Database version higher than old.");
 			db_delete();
 		}
+	}
+	
+	
+	
+	
+	public static SQLiteDatabase getSqlDatabase(Context ctx)
+	{
+		DatabaseHelper myDbHelper = DatabaseHelper.getInstance(ctx);
+		try {
+			myDbHelper.createDatabase();
+		} catch (IOException ioe) {
+			throw new Error("Unable to create database");
+		}
+		try {
+			myDbHelper.openDatabase();
+		}catch(SQLException sqle){
+			throw sqle;
+		}
+
+		
+		return myDbHelper.getWritableDatabase();
 	}
 }

@@ -22,7 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class EncontreUmaTrekFragment extends Fragment {
-	public final static String TREK_NAME = "com.example.starttrekking.TREK_NAME";
+	public final static String TREK_ID = "com.example.starttrekking.TREK_ID";
 	private DatabaseHelper myDbHelper;
 	ArrayList<Trek> treks_array;
 	public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) 
@@ -47,7 +47,7 @@ public class EncontreUmaTrekFragment extends Fragment {
 		Cursor cursor = db.rawQuery("SELECT * FROM trekking", null);
 		if (cursor.moveToFirst()) {
 			do {
-				Trek temp_trek = new Trek(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getFloat(6), cursor.getString(7));
+				Trek temp_trek = new Trek(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getFloat(5), cursor.getString(6));
 				treks_array.add(temp_trek);
 			} while (cursor.moveToNext());
 		}
@@ -60,12 +60,13 @@ public class EncontreUmaTrekFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
 				Intent intent = new Intent(view.getContext(), DetalhesTrekActivity.class);
-				intent.putExtra(TREK_NAME, treks_array.get(position).getNome());
+				intent.putExtra(TREK_ID, treks_array.get(position).getId());
 				startActivity(intent);
 			}
 		});
 		
 		PopulateList(treks_listview, container.getContext());
+		myDbHelper.close();
 		
 		return view;
 	}

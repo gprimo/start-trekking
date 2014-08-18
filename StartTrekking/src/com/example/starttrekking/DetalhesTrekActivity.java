@@ -2,6 +2,8 @@ package com.example.starttrekking;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,11 +15,27 @@ public class DetalhesTrekActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Intent intent = getIntent();
-	    String message = intent.getStringExtra(EncontreUmaTrekFragment.TREK_NAME);
+	    int trek_id = intent.getIntExtra(EncontreUmaTrekFragment.TREK_ID,0);
 	    setContentView(R.layout.activity_detalhe_trek);
+	    Trek trek_escolhida = null;
+	    SQLiteDatabase db = DatabaseHelper.getSqlDatabase(this);
+	    Cursor cursor = db.rawQuery("SELECT * FROM trekking where id=" + trek_id, null);
+		if (cursor.moveToFirst()) {
+			do {
+				trek_escolhida = new Trek(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getFloat(5), cursor.getString(6));
+			} while (cursor.moveToNext());
+		}
 	    TextView titulo = (TextView) findViewById(R.id.titulo_trek);
+	    titulo.setText(trek_escolhida.getNome());
 	    
-	    titulo.setText(message);
+	    TextView comprimento= (TextView) findViewById(R.id.comprimento);
+	    comprimento.setText(trek_escolhida.getComprimento());
+	    
+	    TextView cidade= (TextView) findViewById(R.id.cidade);
+	    cidade.setText(trek_escolhida.getCidade());
+	    
+	    TextView estado= (TextView) findViewById(R.id.estado);
+	    estado.setText(trek_escolhida.getEstado());
 	    
 	}
 

@@ -7,7 +7,7 @@
    android:background="#a1b7ff">
 
        <TextView
-           android:id="@+id/textView1"
+           android:id="@+id/comprimento"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_weight="1"

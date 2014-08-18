@@ -18,4 +18,58 @@
         android:text="@string/hello_world"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/comprimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/titulo_trek"
+        android:layout_below="@+id/titulo_trek"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="44dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:width="120dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/comprimento"
+        android:layout_alignBottom="@+id/comprimento"
+        android:layout_alignLeft="@+id/titulo_trek"
+        android:text="Comprimento" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:text="Estado" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cidade"
+        android:layout_alignBottom="@+id/cidade"
+        android:layout_alignLeft="@+id/textView2"
+        android:text="Cidade" />
+
+    <TextView
+        android:id="@+id/estado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/comprimento"
+        android:layout_alignRight="@+id/comprimento" />
+
+    <TextView
+        android:id="@+id/cidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/estado"
+        android:layout_alignRight="@+id/estado"
+        android:layout_below="@+id/estado" />
+
 </RelativeLayout>
